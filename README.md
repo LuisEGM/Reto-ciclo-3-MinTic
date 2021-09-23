@@ -10,7 +10,7 @@ el proyecto y generar las carpetas /obj y /bin dentro de cada paquete al ejecuta
 Debe estar ubicado en el directorio correspondiente a persistencia. Abra una consola en esa ubicación y escriba los siguientes comandos:
 
 ### Para generar la migración ejecute:
-> dotnet ef migrations add Inicial --startup-project ..\SoccerTournametManager.App.Consola\
+> dotnet ef migrations add Inicial --startup-project ..\SoccerTournametManager.App.Consola
 
 ### Para ejecutar la migración y crear la DB ejecute:
 > dotnet ef database update --startup-project ..\SoccerTournametManager.App.Consola
