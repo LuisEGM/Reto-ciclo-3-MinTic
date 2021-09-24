@@ -38,25 +38,25 @@ namespace SoccerTournametManager.App.Persistencia
             _appContext.SaveChanges();
         }
 
-        IEnumerable<Arbitro> IRepositorioArbitro.getAllDTs()
+        IEnumerable<Arbitro> IRepositorioArbitro.getAllArbitros()
         {
             return _appContext.Arbitros;
         }
 
-        Arbitros IRepositorioArbitro.GetArbitro(int idArbitro)
+        Arbitro IRepositorioArbitro.GetArbitro(int idArbitro)
         {
             return _appContext.Arbitros.FirstOrDefault(p => p.Id == idArbitro);
         }
 
-        Arbitros IRepositorioArbitro.updateArbitro(Arbitro arbitro)
+        Arbitro IRepositorioArbitro.updateArbitro(Arbitro arbitro)
         {
             var arbitroEncontrado = _appContext.Arbitros.FirstOrDefault(p => p.Id == arbitro.Id);
             if (arbitroEncontrado != null)
             {
-                arbitroEncontrado.Nombre = Arbitro.Nombre;
-                arbitroEncontrado.Documento = Arbitro.Documento;
-                arbitroEncontrado.Telefono = Arbitro.Telefono;
-                arbitroEncontrado.Colegio = Arbitro.Colegio;
+                arbitroEncontrado.Nombre = arbitro.Nombre;
+                arbitroEncontrado.Documento = arbitro.Documento;
+                arbitroEncontrado.Telefono = arbitro.Telefono;
+                arbitroEncontrado.Colegio = arbitro.Colegio;
                 _appContext.SaveChanges();
             }
             return arbitroEncontrado;
