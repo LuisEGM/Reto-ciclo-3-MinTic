@@ -42,8 +42,8 @@ namespace SoccerTournametManager.App.Consola
             //estadioCrudTest.añadirEstadio();
             //estadioCrudTest.añadirEstadio();
             // Se agrega un jugador
-            //jugadorCrudTest.añadirJugador();
-            //jugadorCrudTest.añadirJugador();
+            jugadorCrudTest.añadirJugador();
+            jugadorCrudTest.añadirJugador();
 
             /// se obtiene y se muestra en json el tecnico agregado
             // dtCrudTest.obtenerDt(1);
@@ -52,7 +52,7 @@ namespace SoccerTournametManager.App.Consola
             /// se obtiene y se muestra en json el estadio agregado
             // estadioCrudTest.obtenerEstadio(1);
             /// se obtiene y se muestra en json el jugador agregado
-            jugadorCrudTest.obtenerJugador(3);
+            //jugadorCrudTest.obtenerJugador(3);
             
             /// se actualizar el dt agregado
             // dtCrudTest.actualizarDT(1);
@@ -70,7 +70,7 @@ namespace SoccerTournametManager.App.Consola
             /// obtener todos los estadios
             // estadioCrudTest.obtenerTodosEstadios();
             /// obtener todos los jugadores
-            // jugadorCrudTest.obtenerTodosJugadores();
+            jugadorCrudTest.obtenerTodosJugadores();
 
             /// se elimina el dt
             // dtCrudTest.EliminarDt(1);
