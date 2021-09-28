@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\SoccerTournametManager.App.Persistencia\SoccerTournametManager.App.Persistencia.csproj" />
+    <ProjectReference Include="..\SoccerTournametManager.App.Dominio\SoccerTournametManager.App.Dominio.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>
