@@ -9,7 +9,7 @@ namespace SoccerTournametManager.App.Consola
 {
     public class EstadioCRUD
     {
-        private static IRepositorioEstadio _repoEstadio = new RepositorioEstadio(new Persistencia.AppContext());
+        private static IRepositorioEstadio _repoEstadio = new RepositorioEstadio();
         public void añadirEstadio() {
             var estadio = new Estadio(){
                 Nombre="test_name",
