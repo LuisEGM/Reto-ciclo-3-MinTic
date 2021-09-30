@@ -10,5 +10,6 @@ namespace SoccerTournametManager.App.Dominio
         public Novedad Novedad { get; set; }
         public int minuto { get; set; }
         public Jugador JugadorInvolucrado { get; set; }
+        public Partido Partido { get; set; }
     }
 }

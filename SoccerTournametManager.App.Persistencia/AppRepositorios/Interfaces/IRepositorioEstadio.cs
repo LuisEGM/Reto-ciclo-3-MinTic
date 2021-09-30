@@ -9,6 +9,7 @@ namespace SoccerTournametManager.App.Persistencia
         Estadio addEstadio(Estadio estadio);
         Estadio updateEstadio(Estadio estadio);
         void DeleteEstadio(int idEstadio);
-        Estadio GetEstadio(int idEstadio);  
+        Estadio GetEstadio(int idEstadio);
+        Municipio asignarMunicipio(int idEstadio, int idMunicipio); 
     }
 }

@@ -11,13 +11,18 @@ namespace SoccerTournametManager.App.Consola
     {
         private static IRepositorioEstadio _repoEstadio = new RepositorioEstadio();
         public void añadirEstadio() {
+
             var estadio = new Estadio(){
-                Nombre="test_name",
-                Direccion="Calle 123",
-               
+                Nombre="Roberto Melendez Stadium_3",
+                Direccion="Kr 23 #234"
             };
             _repoEstadio.addEstadio(estadio);
             Console.Write("\n\n>> Se agrego el Estadio...!");
+        }
+
+        public void asignarMunicipio(int idEstadio, int idMunicipio)
+        {
+            _repoEstadio.asignarMunicipio(idEstadio, idMunicipio);
         }
 
         public void obtenerEstadio(int idEstadio) {

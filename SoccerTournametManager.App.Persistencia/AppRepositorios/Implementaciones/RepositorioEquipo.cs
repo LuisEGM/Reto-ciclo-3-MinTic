@@ -57,7 +57,6 @@ namespace SoccerTournametManager.App.Persistencia
                 equipoEncontrado.Municipio = equipo.Municipio;
                 equipoEncontrado.DirectorTecnico = equipo.DirectorTecnico;
                 equipoEncontrado.DesempeñoEquipo = equipo.DesempeñoEquipo;
-                equipoEncontrado.Jugadores = equipo.Jugadores;
                 _appContext.SaveChanges();
             }
             return equipoEncontrado;

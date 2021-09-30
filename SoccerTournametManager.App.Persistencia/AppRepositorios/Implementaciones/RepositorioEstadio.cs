@@ -1,6 +1,7 @@
  using System.Collections.Generic;
  using SoccerTournametManager.App.Dominio;
  using System.Linq;
+ using Microsoft.EntityFrameworkCore;
 
  namespace SoccerTournametManager.App.Persistencia
  {
@@ -12,7 +13,7 @@
          /// </sumary>
          private readonly AppContext _appContext = new AppContext();
 
-         Estadio IRepositorioEstadio.addEstadio(Estadio estadio )
+         Estadio IRepositorioEstadio.addEstadio(Estadio estadio)
          {
              var estadioAdicionado = _appContext.Estadios.Add(estadio);
              _appContext.SaveChanges();
@@ -30,12 +31,16 @@
 
          IEnumerable<Estadio> IRepositorioEstadio.getAllEstadios()
          {
-             return _appContext.Estadios;
+             return _appContext.Estadios.Include(e => e.Municipio);
          }
 
          Estadio IRepositorioEstadio.GetEstadio(int idEstadio)
          {
-             return _appContext.Estadios.FirstOrDefault(p => p.Id == idEstadio);
+            var estadioEncontrado = _appContext.Estadios
+            .Where(e => e.Id == idEstadio)
+            .Include(e => e.Municipio)
+            .SingleOrDefault();
+            return estadioEncontrado;
          }
 
          Estadio IRepositorioEstadio.updateEstadio(Estadio estadio)
@@ -50,5 +55,21 @@
              }
              return estadioEncontrado;
          }
+
+        Municipio IRepositorioEstadio.asignarMunicipio(int idEstadio, int idMunicipio)
+        {
+            var estadioEncontrado = _appContext.Estadios.Find(idEstadio);
+            if (estadioEncontrado != null)
+            {
+                var municipioEncontrado = _appContext.Municipios.Find(idMunicipio);
+                if (municipioEncontrado != null)
+                {
+                    estadioEncontrado.Municipio = municipioEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return municipioEncontrado;
+            }
+            return null;
+        }
      }
  }
