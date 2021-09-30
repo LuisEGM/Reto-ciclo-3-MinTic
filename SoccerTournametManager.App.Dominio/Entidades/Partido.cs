@@ -15,6 +15,5 @@ namespace SoccerTournametManager.App.Dominio
         public DateTime FechaHora { get; set; }
         public Estadio Estadio { get; set; }
         public Arbitro Arbitro { get; set; }
-        public List<NovedadPartido> Novedades { get; set; }
     }
 }
