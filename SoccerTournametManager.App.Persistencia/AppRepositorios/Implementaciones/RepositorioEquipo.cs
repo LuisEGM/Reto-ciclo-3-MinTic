@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using SoccerTournametManager.App.Dominio;
 using System.Linq;
-
+ using Microsoft.EntityFrameworkCore;
 namespace SoccerTournametManager.App.Persistencia
 {
     public class RepositorioEquipo : IRepositorioEquipo
@@ -10,17 +10,7 @@ namespace SoccerTournametManager.App.Persistencia
         /// <sumary>
         /// Referencia al contexto del equipo
         /// </sumary>
-        private readonly AppContext _appContext;
-
-        /// <sumary>
-        /// Metodo constructor utiliza
-        /// inyeccion de dependencias para indicar el contexto a utilizar
-        /// </sumary>
-        /// <param name="appContext"></param>
-        public RepositorioEquipo(AppContext appContext)
-        {
-            _appContext=appContext;
-        }
+        private readonly AppContext _appContext = new AppContext();
 
         Equipo IRepositorioEquipo.addEquipo(Equipo equipo)
         {
@@ -40,12 +30,20 @@ namespace SoccerTournametManager.App.Persistencia
 
         IEnumerable<Equipo> IRepositorioEquipo.getAllEquipos()
         {
-            return _appContext.Equipos;
+            return _appContext.Equipos
+            .Include(e => e.Municipio)
+            .Include(e => e.DirectorTecnico);
         }
 
         Equipo IRepositorioEquipo.GetEquipo(int idEquipo)
         {
-            return _appContext.Equipos.FirstOrDefault(p => p.Id == idEquipo);
+            var equipoEncontrado = _appContext.Equipos
+            .Where(e => e.Id == idEquipo)
+            .Include(e => e.Municipio)
+            .Include(e => e.DirectorTecnico)
+            .Include(e => e.DesempeñoEquipo)
+            .SingleOrDefault();
+            return equipoEncontrado;
         }
 
         Equipo IRepositorioEquipo.updateEquipo(Equipo equipo)

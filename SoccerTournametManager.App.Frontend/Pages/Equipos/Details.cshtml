@@ -1,0 +1,55 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.Equipos.DetailsModel
+@{
+}
+<h1>Detalle del equipo</h1>
+<div class="card m-5" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">@Model.equipo.Nombre</h5>
+    <p class="card-text">
+        <p> <strong>Id:</strong> @Model.equipo.Id</p>
+        <p> <strong>Municipio:</strong> @Model.equipo.Municipio.Nombre</p>
+    </p>
+  </div>
+</div>
+<h2>Informacion del tecnico</h2>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Documento</th>
+      <th scope="col">Telefono</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>@Model.equipo.DirectorTecnico.Nombre</td>
+        <td>@Model.equipo.DirectorTecnico.Documento</td>
+        <td>@Model.equipo.DirectorTecnico.Telefono</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Estadisticas del equipo</h2>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Partidos Jugados</th>
+      <th scope="col">Partidos Ganados</th>
+      <th scope="col">Partidos Empatados</th>
+      <th scope="col">Goles A Favor</th>
+      <th scope="col">Goles En Contra</th>
+      <th scope="col">Puntos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>@Model.equipo.DesempeñoEquipo.PartidosJugados</td>
+        <td>@Model.equipo.DesempeñoEquipo.PartidosGanados</td>
+        <td>@Model.equipo.DesempeñoEquipo.PartidosEmpatados</td>
+        <td>@Model.equipo.DesempeñoEquipo.GolesAFavor</td>
+        <td>@Model.equipo.DesempeñoEquipo.GolesEnContra</td>
+        <td>@Model.equipo.DesempeñoEquipo.Puntos</td>
+    </tr>
+  </tbody>
+</table>
+<a class="btn btn-primary btn-block" asp-page="./Index">Back</a>

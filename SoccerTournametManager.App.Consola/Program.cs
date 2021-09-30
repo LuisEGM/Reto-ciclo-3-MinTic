@@ -11,10 +11,10 @@ namespace SoccerTournametManager.App.Consola
             /// CRUD TEST PARA DIRECTOR TECNICO
             /// DESCOMENTE PARA PROBAR UNO POR UNO
             /// >> El test consiste en descomentar la opcion del crud que se quier probar.
-            // var dtCrudTest = new DirectorTecnicoCRUD();
+            var dtCrudTest = new DirectorTecnicoCRUD();
 
             // Se agrega un director tecnico
-            // dtCrudTest.añadirDT();
+            dtCrudTest.añadirDT();
             // dtCrudTest.añadirDT();
 
             /// se obtiene y se muestra en json el tecnico agregado
@@ -34,10 +34,10 @@ namespace SoccerTournametManager.App.Consola
             /// CRUD TEST PARA ARBITRO
             /// DESCOMENTE PARA PROBAR UNO POR UNO
             /// >> El test consiste en descomentar la opcion del crud que se quier probar.
-            // var arbitroCrudTest = new ArbitroCRUD();
+            var arbitroCrudTest = new ArbitroCRUD();
 
             // Se agrega un arbitro
-            //arbitroCrudTest.añadirArbitro();
+            arbitroCrudTest.añadirArbitro();
             //arbitroCrudTest.añadirArbitro();
 
             /// se obtiene y se muestra en json el arbitro agregado
@@ -81,10 +81,10 @@ namespace SoccerTournametManager.App.Consola
             /// DESCOMENTE PARA PROBAR UNO POR UNO
             /// >> EL ID DEL PRIMER jUGADOR QUE SE AGREGA ES 1
             /// >> El test consiste en descomentar la opcion del crud que se quier probar.
-            //var jugadorCrudTest = new JugadorCRUD();
+            var jugadorCrudTest = new JugadorCRUD();
             
             // Se agrega un jugador
-            //jugadorCrudTest.añadirJugador();
+            jugadorCrudTest.añadirJugador();
             //jugadorCrudTest.añadirJugador();
 
             /// se obtiene y se muestra en json el jugador agregado
