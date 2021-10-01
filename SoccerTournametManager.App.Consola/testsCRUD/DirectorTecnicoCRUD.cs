@@ -9,7 +9,7 @@ namespace SoccerTournametManager.App.Consola
 {
     public class DirectorTecnicoCRUD
     {
-        private static IRepositorioDT _repoDT = new RepositorioDT(new Persistencia.AppContext());
+        private static IRepositorioDT _repoDT = new RepositorioDT();
         public void añadirDT() {
             var dt = new DirectorTecnico(){
                 Nombre="test_name",

@@ -27,6 +27,8 @@ namespace SoccerTournametManager.App.Frontend
         {
             services.AddRazorPages();
             services.AddSingleton<IRepositorioEstadio, RepositorioEstadio>();
+            services.AddSingleton<IRepositorioDT, RepositorioDT>();
+            services.AddSingleton<IRepositorioJugador, RepositorioJugador>();
             services.AddSingleton<IRepositorioEquipo, RepositorioEquipo>();
             services.AddSingleton<IRepositorioArbitro, RepositorioArbitro>();
             services.AddSingleton<IRepositorioMunicipio, RepositorioMunicipio>();

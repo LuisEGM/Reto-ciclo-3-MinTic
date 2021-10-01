@@ -5,6 +5,6 @@ namespace SoccerTournametManager.App.Dominio
     /// </summary>
     public class DirectorTecnico: Persona
     {
- 
+        // Identificador único de cada director tecnico
     }
 }

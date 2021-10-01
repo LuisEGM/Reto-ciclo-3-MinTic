@@ -9,7 +9,7 @@ namespace SoccerTournametManager.App.Consola
 {
     public class JugadorCRUD
     {
-        private static IRepositorioJugador _repoJugador = new RepositorioJugador(new Persistencia.AppContext());
+        private static IRepositorioJugador _repoJugador = new RepositorioJugador();
         public void añadirJugador() {
             var jugador = new Jugador(){
                 Nombre="test_name",
