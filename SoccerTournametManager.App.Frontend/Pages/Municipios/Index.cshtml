@@ -1,0 +1,25 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.Municipios.IndexModel
+@{
+}
+<h1>Listado de municipios</h1>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var municipio in Model.municipios)
+    {
+        <tr>
+            <th scope="row">@municipio.Id</th>
+            <td>@municipio.Nombre</td>
+            <td>
+              <a class="btn btn-primary" asp-page="./Details" asp-route-id="@municipio.Id">Detalle</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>

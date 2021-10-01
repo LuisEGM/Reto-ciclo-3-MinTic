@@ -9,7 +9,7 @@ namespace SoccerTournametManager.App.Consola
 {
     public class ArbitroCRUD
     {
-        private static IRepositorioArbitro _repoArbitro = new RepositorioArbitro(new Persistencia.AppContext());
+        private static IRepositorioArbitro _repoArbitro = new RepositorioArbitro();
         public void añadirArbitro() {
             var arbitro = new Arbitro(){
                 Nombre="test_name",

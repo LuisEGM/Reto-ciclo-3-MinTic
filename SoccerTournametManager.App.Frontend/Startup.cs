@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SoccerTournametManager.App.Persistencia;
 
+
 namespace SoccerTournametManager.App.Frontend
 {
     public class Startup
@@ -27,6 +28,8 @@ namespace SoccerTournametManager.App.Frontend
             services.AddRazorPages();
             services.AddSingleton<IRepositorioEstadio, RepositorioEstadio>();
             services.AddSingleton<IRepositorioEquipo, RepositorioEquipo>();
+            services.AddSingleton<IRepositorioArbitro, RepositorioArbitro>();
+            services.AddSingleton<IRepositorioMunicipio, RepositorioMunicipio>();
             //Aqui deben agregar sus repos  <interfas, implementacion>
         }
 
