@@ -29,6 +29,31 @@
     </tr>
   </tbody>
 </table>
+
+
+<h2>Lista de Jugadores</h2>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Posicion</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var jugador in Model.listaJugadores)
+    {
+        <tr>
+            <th scope="row">@jugador.Id</th>
+            <td>@jugador.Nombre</td>
+            <td>@jugador.Numero</td>
+            <td>@jugador.Posicion</td>
+        </tr>
+    }
+  </tbody>
+</table>
+
 <h2>Estadisticas del equipo</h2>
 <table class="table table-bordered">
   <thead class="thead-dark">

@@ -11,6 +11,26 @@
         <p> <strong>Numero:</strong> @Model.jugador.Numero</p>
         <p> <strong>Posicion:</strong> @Model.jugador.Posicion</p>
     </p>
-    <a class="btn btn-primary btn-block" asp-page="./Index">Back</a>
   </div>
 </div>
+
+<h2>Equipo actual</h2>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      @* <th scope="col">Municipio</th> *@
+      <th scope="col">Director Tecnico</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <th scope="row">@Model.jugador.Equipo.Id</th>
+        <td>@Model.jugador.Equipo.Nombre</td>
+        @* <td>@Model.jugador.Equipo.Municipio.Nombre</td> *@
+        <td>@Model.jugador.Equipo.DirectorTecnico.Nombre</td>
+    </tr>
+  </tbody>
+</table>
+<a class="btn btn-primary btn-block" asp-page="./Index">Back</a>
