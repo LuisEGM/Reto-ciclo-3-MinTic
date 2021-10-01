@@ -1,0 +1,30 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.DirectoresTecnicos.IndexModel
+@{
+}
+<h1>Lista de Directores Tecnicos</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Documento</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var directortecnico in Model.directorestecnicos)
+    {
+        <tr>
+            <th scope="row">@directortecnico.Id</th>
+            <td>@directortecnico.Nombre</td>
+            <td>@directortecnico.Documento</td>
+            <td>@directortecnico.Telefono</td>
+            <td>
+              <a class="btn btn-primary" asp-page="./Details" asp-route-id="@directortecnico.Id">Detalle</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
