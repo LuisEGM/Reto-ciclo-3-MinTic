@@ -44,8 +44,11 @@
              if (jugadorEncontrado != null)
              {
                  jugadorEncontrado.Nombre = jugador.Nombre;
+                 jugadorEncontrado.Documento = jugador.Documento;
+                 jugadorEncontrado.Telefono = jugador.Telefono;
                  jugadorEncontrado.Numero = jugador.Numero;
                  jugadorEncontrado.Posicion = jugador.Posicion;
+                 jugadorEncontrado.Equipo = jugador.Equipo;
                  _appContext.SaveChanges();
              }
              return jugadorEncontrado;

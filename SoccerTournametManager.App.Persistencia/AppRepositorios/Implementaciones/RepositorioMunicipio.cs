@@ -10,17 +10,17 @@ namespace SoccerTournametManager.App.Persistencia
         /// <sumary>
         /// Referencia al contexto del municipio
         /// </sumary>
-        private readonly AppContext _appContext;
+        private readonly AppContext _appContext = new AppContext();
 
         /// <sumary>
         /// Metodo constructor utiliza
         /// inyeccion de dependencias para indicar el contexto a utilizar
         /// </sumary>
         /// <param name="appContext"></param>
-        public RepositorioMunicipio(AppContext appContext)
-        {
-            _appContext=appContext;
-        }
+        // public RepositorioMunicipio(AppContext appContext)
+        // {
+        //     _appContext=appContext;
+        // }
 
         Municipio IRepositorioMunicipio.addMunicipio(Municipio municipio)
         {

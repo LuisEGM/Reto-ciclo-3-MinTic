@@ -16,4 +16,4 @@ Debe estar ubicado en el directorio correspondiente a persistencia. Abra una con
 > dotnet ef database update --startup-project ..\SoccerTournametManager.App.Consola
 
 ## Diagrama de clases
-![diagrama](https://firebasestorage.googleapis.com/v0/b/warehouse-ee161.appspot.com/o/SoccerTournamentManagerDC-v3.jpg?alt=media&token=86db6db1-2028-4354-a526-0bc25095a9a2)
+![diagrama](https://firebasestorage.googleapis.com/v0/b/warehouse-ee161.appspot.com/o/UML_SoccerTournamentManager.jpg?alt=media&token=57309eeb-5d5a-4b30-9e0e-01679c435e85)

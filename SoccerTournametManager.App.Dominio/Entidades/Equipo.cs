@@ -12,7 +12,6 @@ namespace SoccerTournametManager.App.Dominio
         public string Nombre { get; set; }
         public Municipio Municipio { get; set; }
         public DirectorTecnico DirectorTecnico { get; set; }
-        public List<Jugador> Jugadores { get; set; }
         public DesempeñoEquipo DesempeñoEquipo { get; set; }
     }
 }

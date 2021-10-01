@@ -20,7 +20,7 @@ namespace SoccerTournametManager.App.Persistencia
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data source  = (localdb)\\MSSQLLocalDB; Initial Catalog = SoccerTournametManager");
+                optionsBuilder.UseSqlServer("Data source  = (localdb)\\MSSQLLocalDB; Initial Catalog = SoccerTournamentManager");
             }
         }
     }

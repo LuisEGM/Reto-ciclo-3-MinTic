@@ -8,7 +8,8 @@ namespace SoccerTournametManager.App.Dominio
         // Identificador único de cada novedad de partido
         public int Id { get; set; }
         public Novedad Novedad { get; set; }
-        public int minuto { get; set; }
+        public int Minuto { get; set; }
         public Jugador JugadorInvolucrado { get; set; }
+        public Partido Partido { get; set; }
     }
 }
