@@ -10,17 +10,7 @@
          /// <sumary>
          /// Referencia al contexto de los jugadores
          /// </sumary>
-         private readonly AppContext _appContext;
-
-         /// <sumary>
-         /// Metodo constructor utiliza
-         /// inyeccion de dependencias para indicar el contexto a utilizar
-         /// </sumary>
-         /// <param name="appContext"></param>
-         public RepositorioJugador(AppContext appContext)
-         {
-             _appContext=appContext;
-         }
+         private readonly AppContext _appContext = new AppContext();
 
          Jugador IRepositorioJugador.addJugador(Jugador jugador)
          {

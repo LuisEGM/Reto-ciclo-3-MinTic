@@ -10,17 +10,7 @@ namespace SoccerTournametManager.App.Persistencia
         /// <sumary>
         /// Referencia al contexto del director tecnico
         /// </sumary>
-        private readonly AppContext _appContext;
-
-        /// <sumary>
-        /// Metodo constructor utiliza
-        /// inyeccion de dependencias para indicar el contexto a utilizar
-        /// </sumary>
-        /// <param name="appContext"></param>
-        public RepositorioDT(AppContext appContext)
-        {
-            _appContext=appContext;
-        }
+        private readonly AppContext _appContext = new AppContext();
 
         DirectorTecnico IRepositorioDT.addDirectorTecnico(DirectorTecnico directorTecnico)
         {

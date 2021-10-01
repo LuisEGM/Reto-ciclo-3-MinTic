@@ -1,0 +1,16 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.DirectoresTecnicos.DetailsModel
+@{
+}
+<h1>Detalle del director tecnico</h1>
+<div class="card m-5" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">@Model.directorTecnico.Nombre</h5>
+    <p class="card-text">
+        <p> <strong>Id:</strong> @Model.directorTecnico.Id</p>
+        <p> <strong>Documento:</strong> @Model.directorTecnico.Documento</p>
+        <p> <strong>Telefono:</strong> @Model.directorTecnico.Telefono</p>
+    </p>
+    <a class="btn btn-primary btn-block" asp-page="./Index">Back</a>
+  </div>
+</div>
