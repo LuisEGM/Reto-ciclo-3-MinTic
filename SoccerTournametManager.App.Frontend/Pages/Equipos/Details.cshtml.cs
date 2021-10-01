@@ -12,15 +12,19 @@ namespace SoccerTournametManager.App.Frontend.Pages.Equipos
     public class DetailsModel : PageModel
     {
         private readonly IRepositorioEquipo _repoEquipo;
-        public Equipo equipo {get; set;}
-        public DetailsModel(IRepositorioEquipo repoEquipo)
+        private readonly IRepositorioJugador _repoJugador;
+        public Equipo equipo { get; set; }
+        public IEnumerable<Jugador> listaJugadores { get; set; }
+        public DetailsModel(IRepositorioEquipo repoEquipo, IRepositorioJugador repoJugador)
         {
             _repoEquipo = repoEquipo;
+            _repoJugador = repoJugador;
         }
         public IActionResult OnGet(int id)
         {
             equipo = _repoEquipo.GetEquipo(id);
-            if(equipo == null)
+            listaJugadores = _repoJugador.getAllJugadoresByEquipo(id);
+            if (equipo == null)
             {
                 return NotFound();
             }

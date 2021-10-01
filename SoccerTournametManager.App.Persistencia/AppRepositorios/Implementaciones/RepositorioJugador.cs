@@ -1,6 +1,7 @@
  using System.Collections.Generic;
  using SoccerTournametManager.App.Dominio;
  using System.Linq;
+ using Microsoft.EntityFrameworkCore;
 
  namespace SoccerTournametManager.App.Persistencia
  {
@@ -30,12 +31,22 @@
 
          IEnumerable<Jugador> IRepositorioJugador.getAllJugadores()
          {
-             return _appContext.Jugadores;
+             return _appContext.Jugadores.Include(j => j.Equipo);
+         }
+
+         IEnumerable<Jugador> IRepositorioJugador.getAllJugadoresByEquipo(int idEquipo)
+         {
+             return _appContext.Jugadores.Include(j => j.Equipo).Where(j => j.Equipo.Id == idEquipo);
          }
 
          Jugador IRepositorioJugador.GetJugador(int idJugador)
          {
-             return _appContext.Jugadores.FirstOrDefault(p => p.Id == idJugador);
+            var jugadorEncontrado = _appContext.Jugadores
+            .Where(j => j.Id == idJugador)
+            .Include(j => j.Equipo)
+            .ThenInclude(e => e.DirectorTecnico)
+            .SingleOrDefault();
+            return jugadorEncontrado;
          }
 
          Jugador IRepositorioJugador.updateJugador(Jugador jugador)

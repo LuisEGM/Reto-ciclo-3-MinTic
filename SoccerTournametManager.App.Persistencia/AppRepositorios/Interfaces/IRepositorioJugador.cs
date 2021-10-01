@@ -6,6 +6,7 @@ namespace SoccerTournametManager.App.Persistencia
     public interface IRepositorioJugador
     {
         IEnumerable<Jugador> getAllJugadores();
+        IEnumerable<Jugador> getAllJugadoresByEquipo(int idEquipo);
         Jugador addJugador(Jugador jugador);
         Jugador updateJugador(Jugador jugador);
         void DeleteJugador(int idJugador);
