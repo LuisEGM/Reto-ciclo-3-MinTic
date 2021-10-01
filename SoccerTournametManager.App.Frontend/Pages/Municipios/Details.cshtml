@@ -1,0 +1,14 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.Municipios.DetailsModel
+@{
+}
+<h1>Detalle del municipio</h1>
+<div class="card m-5" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">@Model.municipio.Nombre</h5>
+    <p class="card-text">
+        <p> <strong>Id:</strong> @Model.municipio.Id</p>
+    </p>
+    <a class="btn btn-primary btn-block" asp-page="./Index">Back</a>
+  </div>
+</div>

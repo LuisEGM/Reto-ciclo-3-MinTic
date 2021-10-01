@@ -1,0 +1,17 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.Arbitros.DetailsModel
+@{
+}
+<h1>Detalle del arbitro</h1>
+<div class="card m-5" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">@Model.arbitro.Nombre</h5>
+    <p class="card-text">
+        <p> <strong>Id:</strong> @Model.arbitro.Id</p>
+        <p> <strong>Documento:</strong> @Model.arbitro.Documento</p>
+        <p> <strong>Telefono:</strong> @Model.arbitro.Telefono</p>
+        <p> <strong>Colegio:</strong> @Model.arbitro.Colegio</p>
+    </p>
+    <a class="btn btn-primary btn-block" asp-page="./Index">Back</a>
+  </div>
+</div>

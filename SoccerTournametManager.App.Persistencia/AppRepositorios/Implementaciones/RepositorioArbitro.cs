@@ -10,17 +10,8 @@ namespace SoccerTournametManager.App.Persistencia
         /// <sumary>
         /// Referencia al contexto del Arbitro
         /// </sumary>
-        private readonly AppContext _appContext;
+        private readonly AppContext _appContext = new AppContext();
 
-        /// <sumary>
-        /// Metodo constructor utiliza
-        /// inyeccion de dependencias para indicar el contexto a utilizar
-        /// </sumary>
-        /// <param name="appContext"></param>
-        public RepositorioArbitro(AppContext appContext)
-        {
-            _appContext=appContext;
-        }
 
         Arbitro IRepositorioArbitro.addArbitro(Arbitro arbitro)
         {
