@@ -39,3 +39,8 @@ INSERT INTO Personas (Nombre, Documento, Discriminator, Telefono, Numero, Posici
 -- SELECT * FROM Personas
 INSERT INTO Personas (Nombre, Documento, Discriminator, Telefono, Colegio) VALUES ('Pitana','234234545', 'Arbitro','300213334', 'Fifa sed_1')
 INSERT INTO Personas (Nombre, Documento, Discriminator, Telefono, Colegio) VALUES ('Betancout','65743554', 'Arbitro','3005467643', 'Fifa sed_2')
+
+-- Insertando Partidos
+-- SELECT * FROM Partidos
+INSERT INTO Partidos(EquipoLocalId,EquipoVisitanteId,EstadioId,FechaHora,ArbitroId) VALUES (1,2,2,'04-10-2021 16:30:15',10)
+
