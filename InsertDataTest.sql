@@ -44,3 +44,6 @@ INSERT INTO Personas (Nombre, Documento, Discriminator, Telefono, Colegio) VALUE
 -- SELECT * FROM Partidos
 INSERT INTO Partidos(EquipoLocalId,EquipoVisitanteId,EstadioId,FechaHora,ArbitroId) VALUES (1,2,2,'04-10-2021 16:30:15',10)
 
+-- Insertando Novedad
+-- SELECT * FROM NovedadesDePartidos
+INSERT INTO NovedadesDePartidos (Novedad, Minuto, JugadorInvolucradoId, PartidoId) VALUES (0, 85, 3, 1)

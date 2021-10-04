@@ -1,20 +1,23 @@
-﻿using System;
+﻿using SoccerTournametManager.App.Persistencia;
+using SoccerTournametManager.App.Dominio;
+using Newtonsoft.Json.Linq;
+using System;
 
 namespace SoccerTournametManager.App.Consola
 {
     class Program
     {
+        private static IRepositorioNovedadPartido _repoNovedad = new RepositorioNovedadPartido();
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to < soccer tournament manager >...!");
-            
             /// CRUD TEST PARA DIRECTOR TECNICO
             /// DESCOMENTE PARA PROBAR UNO POR UNO
             /// >> El test consiste en descomentar la opcion del crud que se quier probar.
-            var dtCrudTest = new DirectorTecnicoCRUD();
+            //var dtCrudTest = new DirectorTecnicoCRUD();
 
             // Se agrega un director tecnico
-            dtCrudTest.añadirDT();
+            //dtCrudTest.añadirDT();
             // dtCrudTest.añadirDT();
 
             /// se obtiene y se muestra en json el tecnico agregado
@@ -34,10 +37,10 @@ namespace SoccerTournametManager.App.Consola
             /// CRUD TEST PARA ARBITRO
             /// DESCOMENTE PARA PROBAR UNO POR UNO
             /// >> El test consiste en descomentar la opcion del crud que se quier probar.
-            var arbitroCrudTest = new ArbitroCRUD();
+            //var arbitroCrudTest = new ArbitroCRUD();
 
             // Se agrega un arbitro
-            arbitroCrudTest.añadirArbitro();
+            //arbitroCrudTest.añadirArbitro();
             //arbitroCrudTest.añadirArbitro();
 
             /// se obtiene y se muestra en json el arbitro agregado
@@ -58,7 +61,7 @@ namespace SoccerTournametManager.App.Consola
             /// DESCOMENTE PARA PROBAR UNO POR UNO
             /// >> EL ID DEL PRIMER ESTADIO QUE SE AGREGA ES 1
             /// >> El test consiste en descomentar la opcion del crud que se quier probar.
-            var estadioCrudTest = new EstadioCRUD();
+            //var estadioCrudTest = new EstadioCRUD();
             // Se agrega un estadio
             //estadioCrudTest.añadirEstadio();
             //estadioCrudTest.asignarMunicipio(3,2);
@@ -70,7 +73,7 @@ namespace SoccerTournametManager.App.Consola
             //estadioCrudTest.actualizarEstadio(1);
 
             /// obtener todos los estadios
-            estadioCrudTest.obtenerTodosEstadios();
+            //estadioCrudTest.obtenerTodosEstadios();
 
             /// se elimina el estadio
             // estadioCrudTest.EliminarEstadio(1);
@@ -81,10 +84,10 @@ namespace SoccerTournametManager.App.Consola
             /// DESCOMENTE PARA PROBAR UNO POR UNO
             /// >> EL ID DEL PRIMER jUGADOR QUE SE AGREGA ES 1
             /// >> El test consiste en descomentar la opcion del crud que se quier probar.
-            var jugadorCrudTest = new JugadorCRUD();
+            //var jugadorCrudTest = new JugadorCRUD();
             
             // Se agrega un jugador
-            jugadorCrudTest.añadirJugador();
+            //jugadorCrudTest.añadirJugador();
             //jugadorCrudTest.añadirJugador();
 
             /// se obtiene y se muestra en json el jugador agregado
@@ -98,7 +101,14 @@ namespace SoccerTournametManager.App.Consola
             
             /// se elimina el jugador
             // jugadorCrudTest.EliminarJugador(1);
-
+             var idNovedad = 5;
+             var novedadOpcional = _repoNovedad.getNovedadDePartido(idNovedad);
+             if (novedadOpcional == null)
+             {   
+                 throw new Exception($"The jugador with id <{idNovedad}> was not found");
+             }
+             Console.Write($"\n\n>> Se obtuvo el Jugador con id <{idNovedad}>...!\n");
+             Console.Write(JObject.FromObject(novedadOpcional));
         }
     }
 }

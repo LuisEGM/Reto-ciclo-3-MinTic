@@ -1,0 +1,34 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.NovedadesDePartidos.DetailsModel
+@{
+}
+<h1>Detalle de la novedad</h1>
+<div class="card m-5" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">@Model.novedad.Novedad</h5>
+    <p class="card-text">
+        <p> <strong>Id:</strong> @Model.novedad.Id</p>
+        <p> <strong>Minuto:</strong> @Model.novedad.Minuto</p>
+    </p>
+  </div>
+</div>
+
+<h1>Encuentro</h1>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">EquipoLocal</th>
+      <th scope="col">EquipoVisitante</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <th scope="row">@Model.novedad.Partido.Id</th>
+        <td>@Model.novedad.Partido.EquipoLocal.Nombre</td>
+        <td>@Model.novedad.Partido.EquipoVisitante.Nombre</td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-primary btn-block" asp-page="./Index">Back</a>

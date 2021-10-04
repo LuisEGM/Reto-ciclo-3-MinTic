@@ -33,7 +33,7 @@ namespace SoccerTournametManager.App.Frontend
             services.AddSingleton<IRepositorioArbitro, RepositorioArbitro>();
             services.AddSingleton<IRepositorioMunicipio, RepositorioMunicipio>();
             services.AddSingleton<IRepositorioPartido, RepositorioPartido>();
-            //Aqui deben agregar sus repos  <interfas, implementacion>
+            services.AddSingleton<IRepositorioNovedadPartido, RepositorioNovedadPartido>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

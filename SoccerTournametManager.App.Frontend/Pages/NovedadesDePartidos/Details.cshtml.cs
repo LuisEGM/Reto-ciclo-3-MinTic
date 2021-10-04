@@ -7,25 +7,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SoccerTournametManager.App.Dominio;
 using SoccerTournametManager.App.Persistencia;
 
-namespace SoccerTournametManager.App.Frontend.Pages.Partidos
+namespace SoccerTournametManager.App.Frontend.Pages.NovedadesDePartidos
 {
     public class DetailsModel : PageModel
     {
-        private readonly IRepositorioPartido _repoPartido;
         private readonly IRepositorioNovedadPartido _repoNovedadPartido;
-
-        public IEnumerable<NovedadPartido> novedades {get; set;}
-        public Partido partido {get; set;}
-        public DetailsModel(IRepositorioPartido repoPartido, IRepositorioNovedadPartido repoNovedadPartido)
+        public NovedadPartido novedad {get; set;}
+        public DetailsModel(IRepositorioNovedadPartido repoNovedadPartido)
         {
-            _repoPartido = repoPartido;
             _repoNovedadPartido = repoNovedadPartido;
         }
         public IActionResult OnGet(int id)
         {
-            partido = _repoPartido.GetPartido(id);
-            novedades = _repoNovedadPartido.getAllNovedadesByPartido(id);
-            if(partido == null)
+            novedad = _repoNovedadPartido.getNovedadDePartido(id);
+            if(novedad == null)
             {
                 return NotFound();
             }
