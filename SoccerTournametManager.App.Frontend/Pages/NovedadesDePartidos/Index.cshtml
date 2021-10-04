@@ -1,0 +1,30 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.NovedadesDePartidos.IndexModel
+@{
+}
+<h1>Lista de novedades de partidos</h1>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Minuto</th>
+      <th scope="col">Jugador involucrado</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var novedad in Model.novedades)
+    {
+        <tr>
+            <th scope="row">@novedad.Id</th>
+            <td>@novedad.Novedad</td>
+            <td>@novedad.Minuto</td>
+            <td>Zidane</td>
+            <td>
+              <a class="btn btn-primary" asp-page="./Details" asp-route-id="@novedad.Id">Detalle</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
