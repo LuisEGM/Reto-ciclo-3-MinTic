@@ -1,0 +1,22 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.Partidos.DetailsModel
+@{
+}
+<h1>Detalle del partido</h1>
+<div class="card m-5" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Partido</h5>
+    <p class="card-text">
+        <p> <strong>Id:</strong> @Model.partido.Id</p>
+        <p> <strong>EquipoLocal:</strong> @Model.partido.EquipoLocal.Nombre</p>
+        <p> <strong>EquipoVisitante:</strong> @Model.partido.EquipoVisitante.Nombre</p>
+        <p> <strong>FechaHora:</strong> @Model.partido.FechaHora</p>
+        <p> <strong>Estadio:</strong> @Model.partido.Estadio.Nombre</p>
+        <p> <strong>Arbitro:</strong> @Model.partido.Arbitro.Nombre</p>
+    </p>
+  </div>
+</div>
+
+
+</table>
+<a class="btn btn-primary btn-block" asp-page="./Index">Back</a>

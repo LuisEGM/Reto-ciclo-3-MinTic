@@ -32,6 +32,7 @@ namespace SoccerTournametManager.App.Frontend
             services.AddSingleton<IRepositorioEquipo, RepositorioEquipo>();
             services.AddSingleton<IRepositorioArbitro, RepositorioArbitro>();
             services.AddSingleton<IRepositorioMunicipio, RepositorioMunicipio>();
+            services.AddSingleton<IRepositorioPartido, RepositorioPartido>();
             //Aqui deben agregar sus repos  <interfas, implementacion>
         }
 
