@@ -8,6 +8,8 @@ namespace SoccerTournametManager.App.Persistencia
         IEnumerable<NovedadPartido> getAllNovedadesDePartidos();
         IEnumerable<NovedadPartido> getAllNovedadesByPartido(int idPartido);
         NovedadPartido addNovedadDePartido(NovedadPartido novedadPartido);
+        Jugador asignarJugador(int idNovedad, int idJugador);
+        Partido asignarPartido(int idNovedad, int idPartido);
         NovedadPartido updateNovedadDePartido(NovedadPartido novedadPartido);
         void deleteNovedadDePartido(int idNovedadPartido);
         NovedadPartido getNovedadDePartido(int idNovedadPartido);

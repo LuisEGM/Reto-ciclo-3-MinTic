@@ -7,7 +7,11 @@ namespace SoccerTournametManager.App.Persistencia
     {
         IEnumerable<Equipo> getAllEquipos();
         Equipo addEquipo(Equipo equipo);
-        Equipo updateEquipo(Equipo equipo);
+        Equipo updateEquipo(int idEquipo, string nombre);
+
+        Municipio addMunicipio(int idEquipo, int idMunicipio);
+
+        DirectorTecnico addDT(int idEquipo, int idDT);
         void DeleteEquipo(int idEquipo);
         Equipo GetEquipo(int idEquipo);
     }

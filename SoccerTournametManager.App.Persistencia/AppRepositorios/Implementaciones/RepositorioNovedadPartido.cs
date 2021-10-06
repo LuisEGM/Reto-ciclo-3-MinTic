@@ -58,18 +58,51 @@ namespace SoccerTournametManager.App.Persistencia
             return novedadEncontrada;
         }
 
-        NovedadPartido IRepositorioNovedadPartido.updateNovedadDePartido(NovedadPartido novedadPartido)
+        NovedadPartido IRepositorioNovedadPartido.updateNovedadDePartido(NovedadPartido novedad)
         {
-            var novedadEncontrada = _appContext.NovedadesDePartidos.FirstOrDefault(n => n.Id == novedadPartido.Id);
+            
+            var novedadEncontrada = _appContext.NovedadesDePartidos.FirstOrDefault(n => n.Id == novedad.Id);
             if (novedadEncontrada != null)
             {
-                novedadEncontrada.JugadorInvolucrado = novedadPartido.JugadorInvolucrado;
-                novedadEncontrada.Minuto = novedadPartido.Minuto;
-                novedadEncontrada.Novedad = novedadPartido.Novedad;
-                novedadEncontrada.Partido = novedadPartido.Partido;
+                novedadEncontrada.Minuto = novedad.Minuto;
+                novedadEncontrada.Novedad = novedad.Novedad;
+                // novedadEncontrada.JugadorInvolucrado = novedad.JugadorInvolucrado;
+                // novedadEncontrada.Partido = novedad.Partido;
                 _appContext.SaveChanges();
             }
             return novedadEncontrada;
         }
+
+        Jugador IRepositorioNovedadPartido.asignarJugador(int idNovedad, int idJugador)
+        {
+            var novedadEncontrada = _appContext.NovedadesDePartidos.Find(idNovedad);
+            if (novedadEncontrada != null)
+            {
+                var jugadorEncontrado = _appContext.Jugadores.Find(idJugador);
+                if (jugadorEncontrado != null)
+                {
+                    novedadEncontrada.JugadorInvolucrado = jugadorEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return jugadorEncontrado;
+            }
+            return null;
+        }
+        Partido IRepositorioNovedadPartido.asignarPartido(int idNovedad, int idPartido)
+        {
+            var novedadEncontrada = _appContext.NovedadesDePartidos.Find(idNovedad);
+            if (novedadEncontrada != null)
+            {
+                var partidoEncontrado = _appContext.Partidos.Find(idPartido);
+                if (partidoEncontrado != null)
+                {
+                    novedadEncontrada.Partido = partidoEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return partidoEncontrado;
+            }
+            return null;
+        }
+
     }
 }

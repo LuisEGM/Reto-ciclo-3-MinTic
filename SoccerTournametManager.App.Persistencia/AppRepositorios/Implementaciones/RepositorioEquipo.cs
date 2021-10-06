@@ -46,18 +46,51 @@ namespace SoccerTournametManager.App.Persistencia
             return equipoEncontrado;
         }
 
-        Equipo IRepositorioEquipo.updateEquipo(Equipo equipo)
+        Equipo IRepositorioEquipo.updateEquipo(int idEquipo, string nombre)
         {
-            var equipoEncontrado = _appContext.Equipos.FirstOrDefault(p => p.Id == equipo.Id);
+            var equipoEncontrado = _appContext.Equipos.FirstOrDefault(p => p.Id == idEquipo);
             if (equipoEncontrado != null)
             {
-                equipoEncontrado.Nombre = equipo.Nombre;
-                equipoEncontrado.Municipio = equipo.Municipio;
-                equipoEncontrado.DirectorTecnico = equipo.DirectorTecnico;
-                equipoEncontrado.DesempeñoEquipo = equipo.DesempeñoEquipo;
+                equipoEncontrado.Nombre = nombre;
+                //equipoEncontrado.Municipio = equipo.Municipio;
+                //equipoEncontrado.DirectorTecnico = equipo.DirectorTecnico;
+                // equipoEncontrado.DesempeñoEquipo = idDesempeñoEquipo;
                 _appContext.SaveChanges();
             }
             return equipoEncontrado;
         }
+
+        Municipio IRepositorioEquipo.addMunicipio(int idEquipo, int idMunicipio)
+        {
+            var equipoEncontrado = _appContext.Equipos.Find(idEquipo);
+            if (equipoEncontrado != null)
+            {
+                var municipioEncontrado = _appContext.Municipios.Find(idMunicipio);
+                if (municipioEncontrado != null)
+                {
+                    equipoEncontrado.Municipio = municipioEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return municipioEncontrado;
+            }
+            return null;
+        }
+
+        DirectorTecnico IRepositorioEquipo.addDT(int idEquipo, int idDT)
+        {
+            var equipoEncontrado = _appContext.Equipos.Find(idEquipo);
+            if (equipoEncontrado != null)
+            {
+                var dtEncontrado = _appContext.DirectoresTecnicos.Find(idDT);
+                if (dtEncontrado != null)
+                {
+                    equipoEncontrado.DirectorTecnico = dtEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return dtEncontrado;
+            }
+            return null;
+        }
+
     }
 }
