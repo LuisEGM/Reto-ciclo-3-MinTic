@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/SoccerTournametManager.App.Consola/bin/Debug/netcoreapp3.1/SoccerTournametManager.App.Consola.dll",
+            "program": "${workspaceFolder}/SoccerTournametManager.App.Frontend/bin/Debug/netcoreapp3.1/SoccerTournametManager.App.Frontend.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/SoccerTournametManager.App.Consola",
+            "cwd": "${workspaceFolder}/SoccerTournametManager.App.Frontend",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

@@ -3,6 +3,9 @@
 @{
 }
 <h1>Listado de equipos</h1>
+
+<a class="btn btn-primary" asp-page="./Create">Nuevo equipo</a>
+
 <table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
@@ -19,10 +22,25 @@
         <tr>
             <th scope="row">@equipo.Id</th>
             <td>@equipo.Nombre</td>
-            <td>@equipo.Municipio.Nombre</td>
-            <td>@equipo.DirectorTecnico.Nombre</td>
+            @if (equipo.Municipio == null) {
+              <td>
+                <a class="btn btn-primary" asp-page="./AddMunicipio" asp-route-id="@equipo.Id">Agregar minicipio</a>
+              </td>
+            }
+            else {
+              <td>@equipo.Municipio.Nombre</td>
+            }
+            @if (equipo.DirectorTecnico == null) {
+              <td>
+                <a class="btn btn-primary" asp-page="./AddDirectorTecnico" asp-route-id="@equipo.Id">Agregar tecnico</a>
+              </td>
+            }
+            else {
+              <td>@equipo.DirectorTecnico.Nombre</td>
+            }
             <td>
               <a class="btn btn-primary" asp-page="./Details" asp-route-id="@equipo.Id">Detalle</a>
+              <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@equipo.Id">Editar</a>
             </td>
         </tr>
     }

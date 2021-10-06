@@ -1,0 +1,38 @@
+﻿@page
+@using SoccerTournametManager.App.Dominio
+@model SoccerTournametManager.App.Frontend.Pages.NovedadesDePartidos.CreateModel
+@{
+}
+<h1>Nueva novedad</h1>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="novedadPartido.Minuto">Minuto</label>
+        <input asp-for="novedadPartido.Minuto" class="form-control">
+        <span asp-validation-for="novedadPartido.Minuto" class="text-danger" ></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="novedadPartido.Novedad">Tipo de novedad</label>
+        <select asp-for="novedadPartido.Novedad" asp-items="Html.GetEnumSelectList<Novedad>()" class="form-control">    
+        </select>
+    </div>
+    @* <div class="form-group">
+        <label for="idJugador">Jugador involucrado</label>
+        <select name="idJugador" id="idJugador" class="form-control">
+            @foreach (var jugador in Model.jugadores)
+            {
+                <option value="@jugador.Id">@jugador.Nombre</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="idPartido">Partido</label>
+        <select name="idPartido" id="idPartido" class="form-control">
+            @foreach (var partido in Model.partidos)
+            {
+                <option value="@partido.Id">@partido.EquipoLocal.Nombre VS @partido.EquipoVisitante.Nombre</option>
+            }
+        </select>
+    </div> *@
+    <button type="submit" class="btn btn-primary">Crear novedad</button>
+</form>
+<a class="btn btn-secondary" asp-page="./Index">Volver</a>
