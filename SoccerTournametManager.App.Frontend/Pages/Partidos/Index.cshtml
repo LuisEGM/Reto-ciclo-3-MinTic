@@ -3,12 +3,16 @@
 @{
 }
 <h1>Lista de Partidos</h1>
+<a class="btn btn-primary" asp-page="./Create">Nuevo partido</a>
 <table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
       <th scope="col">ID</th>
+      <th scope="col">Fecha</th> 
       <th scope="col">EquipoLocal</th>
       <th scope="col">EquipoVisitante</th>
+      <th scope="col">Estadio</th>
+      <th scope="col">Arbitro</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -17,10 +21,42 @@
     {
         <tr>
             <th scope="row">@partido.Id</th>
-            <td>@partido.EquipoLocal.Nombre</td>
-            <td>@partido.EquipoVisitante.Nombre</td>
+            <td>@partido.FechaHora</td>
+            @if (partido.EquipoLocal == null) {
+              <td>
+                <a class="btn btn-primary" asp-page="./AddEquipoLocal" asp-route-id="@partido.Id">Asignar equipo (L)</a>
+              </td>
+            }
+            else {
+              <td>@partido.EquipoLocal.Nombre</td>
+            }
+            @if (partido.EquipoVisitante == null) {
+              <td>
+                <a class="btn btn-primary" asp-page="./AddEquipoVisitante" asp-route-id="@partido.Id">Asignar equipo (V)</a>
+              </td>
+            }
+            else {
+              <td>@partido.EquipoVisitante.Nombre</td>
+            }
+            @if (partido.Estadio == null) {
+              <td>
+                <a class="btn btn-primary" asp-page="./AddEstadio" asp-route-id="@partido.Id">Asignar estadio</a>
+              </td>
+            }
+            else {
+              <td>@partido.Estadio.Nombre</td>
+            }
+            @if (partido.Arbitro == null) {
+              <td>
+                <a class="btn btn-primary" asp-page="./AddArbitro" asp-route-id="@partido.Id">Asignar arbitro</a>
+              </td>
+            }
+            else {
+              <td>@partido.Arbitro.Nombre</td>
+            }
             <td>
               <a class="btn btn-primary" asp-page="./Details" asp-route-id="@partido.Id">Detalle</a>
+              <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@partido.Id">Editar</a>
             </td>
         </tr>
     }

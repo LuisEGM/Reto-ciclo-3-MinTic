@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using SoccerTournametManager.App.Dominio;
 using System.Linq;
+using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace SoccerTournametManager.App.Persistencia
@@ -57,19 +58,83 @@ namespace SoccerTournametManager.App.Persistencia
             return partidoEncontrado;
         }
 
-        Partido IRepositorioPartido.updatePartido(Partido partido)
+        Partido IRepositorioPartido.updatePartido(int idPartido, string fechaHora)
         {
-            var partidoEncontrado = _appContext.Partidos.FirstOrDefault(p => p.Id == partido.Id);
+            var partidoEncontrado = _appContext.Partidos.FirstOrDefault(p => p.Id == idPartido);
             if (partidoEncontrado != null)
             {
-                partidoEncontrado.EquipoLocal = partido.EquipoLocal;
-                partidoEncontrado.EquipoVisitante = partido.EquipoVisitante;
-                partidoEncontrado.FechaHora = partido.FechaHora;
-                partidoEncontrado.Estadio = partido.Estadio;
-                partidoEncontrado.Arbitro = partido.Arbitro;
+                Console.Write(fechaHora);
+                if (fechaHora == null)
+                {
+                    partidoEncontrado.FechaHora = DateTime.Today;
+                }
+                else
+                {
+                    partidoEncontrado.FechaHora = Convert.ToDateTime(fechaHora);
+                    // partidoEncontrado.FechaHora = DateTime.ParseExact(fechaHora, "'\"'yyyy-MM-dd'T'HH:mm:ss.fff'Z\"'", null);
+                
+                }
+                // partidoEncontrado.EquipoLocal = partido.EquipoLocal;
+                // partidoEncontrado.EquipoVisitante = partido.EquipoVisitante;
+                // partidoEncontrado.Estadio = partido.Estadio;
+                // partidoEncontrado.Arbitro = partido.Arbitro;
                 _appContext.SaveChanges();
             }
             return partidoEncontrado;
+        }
+
+        Equipo IRepositorioPartido.addEquipo(string tipoEquipo, int idPartido, int idEquipo)
+        {
+            var partidoEncontrado = _appContext.Partidos.Find(idPartido);
+            if (partidoEncontrado != null)
+            {
+                var equipoEncontrado = _appContext.Equipos.Find(idEquipo);
+                if (equipoEncontrado != null)
+                {
+                    if (tipoEquipo == "visitante")
+                    {
+                        partidoEncontrado.EquipoVisitante = equipoEncontrado;
+                    }
+                    else
+                    {
+                        partidoEncontrado.EquipoLocal = equipoEncontrado;
+                    }
+                    _appContext.SaveChanges();
+                }
+                return equipoEncontrado;
+            }
+            return null;
+        }
+
+        Estadio IRepositorioPartido.addEstadio(int idPartido, int idEstadio)
+        {
+            var partidoEncontrado = _appContext.Partidos.Find(idPartido);
+            if (partidoEncontrado != null)
+            {
+                var estadioEncontrado = _appContext.Estadios.Find(idEstadio);
+                if (estadioEncontrado != null)
+                {
+                    partidoEncontrado.Estadio = estadioEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return estadioEncontrado;
+            }
+            return null;
+        }
+        Arbitro IRepositorioPartido.addArbitro(int idPartido, int idArbitro)
+        {
+            var partidoEncontrado = _appContext.Partidos.Find(idPartido);
+            if (partidoEncontrado != null)
+            {
+                var arbitroEncontrado = _appContext.Arbitros.Find(idArbitro);
+                if (arbitroEncontrado != null)
+                {
+                    partidoEncontrado.Arbitro = arbitroEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return arbitroEncontrado;
+            }
+            return null;
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.Partidos.AddEstadioModel
+@{
+}
+<h1>Asignar estadio</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="idPartido">Partido</label>
+        <input id="idPartido" type="text" name="idPartido" value="@Model.partido.Id" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label for="idEstadio">Estadios</label>
+        <select name="idEstadio" id="idEstadio" class="form-control">
+            @foreach (var estadio in Model.estadios)
+            {
+                <option value="@estadio.Id">@estadio.Nombre</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Asignar estadio</button>
+</form>
+<a asp-page="./Index" class="btn btn-secondary">Volver</a>

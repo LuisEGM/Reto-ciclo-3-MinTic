@@ -1,0 +1,22 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.Partidos.AddEquipoLocalModel
+@{
+}
+<h1>Asignar equipo local</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="idPartido">Partido</label>
+        <input id="idPartido" type="text" name="idPartido" value="@Model.partido.Id" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label for="idEquipo">Equipos</label>
+        <select name="idEquipo" id="idEquipo" class="form-control">
+            @foreach (var equipo in Model.equipos)
+            {
+                <option value="@equipo.Id">@equipo.Nombre</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Asignar equipo local</button>
+</form>
+<a asp-page="./Index" class="btn btn-secondary">Volver</a>

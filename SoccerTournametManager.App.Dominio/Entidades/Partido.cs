@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SoccerTournametManager.App.Dominio
 {
@@ -12,6 +13,8 @@ namespace SoccerTournametManager.App.Dominio
         public int Id { get; set; }
         public Equipo EquipoLocal { get; set; }
         public Equipo EquipoVisitante { get; set; }
+        [Required(ErrorMessage = "Este campo es obligatorio")]
+        [Display(Name = "Fecha y hora del encuentro")]
         public DateTime FechaHora { get; set; }
         public Estadio Estadio { get; set; }
         public Arbitro Arbitro { get; set; }

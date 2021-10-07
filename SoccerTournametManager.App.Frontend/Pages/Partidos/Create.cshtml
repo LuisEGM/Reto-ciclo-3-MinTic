@@ -1,0 +1,14 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.Partidos.CreateModel
+@{
+}
+<h1>Nuevo partido</h1>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="partido.FechaHora"></label>
+        <input asp-for="partido.FechaHora" value="@DateTime.Today" class="form-control">
+        <span asp-validation-for="partido.FechaHora" class="text-danger" ></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear partido</button>
+</form>
+<a class="btn btn-secondary" asp-page="./Index">Volver</a>
