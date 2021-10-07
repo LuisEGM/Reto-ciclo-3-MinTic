@@ -8,11 +8,39 @@
     <h5 class="card-title">Partido</h5>
     <p class="card-text">
         <p> <strong>Id:</strong> @Model.partido.Id</p>
-        <p> <strong>EquipoLocal:</strong> @Model.partido.EquipoLocal.Nombre</p>
-        <p> <strong>EquipoVisitante:</strong> @Model.partido.EquipoVisitante.Nombre</p>
+        @if (Model.partido.EquipoLocal != null)
+        {
+          <p> <strong>EquipoLocal:</strong> @Model.partido.EquipoLocal.Nombre</p>  
+        }
+        else
+        {
+          <p> <strong>EquipoVisitante:</strong> Sin equipo asignado</p>
+        }
+        @if (Model.partido.EquipoVisitante != null)
+        {
+          <p> <strong>EquipoVisitante:</strong> @Model.partido.EquipoVisitante.Nombre</p>
+        }
+        else
+        {
+          <p> <strong>EquipoVisitante:</strong> Sin equipo asignado</p>
+        }
         <p> <strong>FechaHora:</strong> @Model.partido.FechaHora</p>
-        <p> <strong>Estadio:</strong> @Model.partido.Estadio.Nombre</p>
-        <p> <strong>Arbitro:</strong> @Model.partido.Arbitro.Nombre</p>
+        @if (Model.partido.Estadio != null)
+        {  
+          <p> <strong>Estadio:</strong> @Model.partido.Estadio.Nombre</p>
+        }
+        else
+        {
+          <p> <strong>Estadio:</strong> Sin estadio asignado</p>
+        }
+        @if (Model.partido.Arbitro != null)
+        {  
+          <p> <strong>Arbitro:</strong> @Model.partido.Arbitro.Nombre</p>
+        }
+        else
+        {
+          <p> <strong>Arbitro:</strong> Sin arbitro asignado</p>
+        }
     </p>
   </div>
 </div>
