@@ -1,0 +1,20 @@
+﻿@page
+@using SoccerTournametManager.App.Dominio
+@model SoccerTournametManager.App.Frontend.Pages.Estadios.CreateModel
+@{
+}
+<h1>Nuevo Estadio</h1>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="estadio.Nombre"></label>
+        <input asp-for="estadio.Nombre" class="form-control">
+        <span asp-validation-for="estadio.Nombre" class="text-danger" ></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="estadio.Direccion"></label>
+        <input asp-for="estadio.Direccion" class="form-control">
+        <span asp-validation-for="estadio.Direccion" class="text-danger" ></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Estadio</button>
+</form>
+<a class="btn btn-secondary" asp-page="./Index">Volver</a>
