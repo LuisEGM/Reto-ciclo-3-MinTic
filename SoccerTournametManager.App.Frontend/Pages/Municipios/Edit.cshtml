@@ -1,0 +1,18 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.Municipios.EditModel
+@{
+}
+<h1>Editar municipio</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="idEstadio">Identificacion</label>
+        <input id="idEstadio" type="text" name="idEstadio" value="@Model.municipio.Id" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label for="nombre">Nombre municipio</label>
+        <input id="nombre" type="text" name="nombre" value="@Model.municipio.Nombre" class="form-control">
+        <span asp-validation-for="municipio.Nombre" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Editar municipio</button>
+</form>
+<a asp-page="./Index" class="btn btn-secondary">Volver</a>

@@ -49,20 +49,36 @@
             return jugadorEncontrado;
          }
 
-         Jugador IRepositorioJugador.updateJugador(Jugador jugador)
+         Jugador IRepositorioJugador.updateJugador(int idJugador, string nombre, string documento, string telefono, int numero, string posicion)
          {
-             var jugadorEncontrado = _appContext.Jugadores.FirstOrDefault(p => p.Id == jugador.Id);
+             var jugadorEncontrado = _appContext.Jugadores.FirstOrDefault(p => p.Id == idJugador);
              if (jugadorEncontrado != null)
              {
-                 jugadorEncontrado.Nombre = jugador.Nombre;
-                 jugadorEncontrado.Documento = jugador.Documento;
-                 jugadorEncontrado.Telefono = jugador.Telefono;
-                 jugadorEncontrado.Numero = jugador.Numero;
-                 jugadorEncontrado.Posicion = jugador.Posicion;
-                 jugadorEncontrado.Equipo = jugador.Equipo;
+                 jugadorEncontrado.Nombre = nombre;
+                 jugadorEncontrado.Documento = documento;
+                 jugadorEncontrado.Telefono = telefono;
+                 jugadorEncontrado.Numero = numero;
+                 jugadorEncontrado.Posicion = posicion;
+                 //jugadorEncontrado.Equipo = jugador.Equipo;
                  _appContext.SaveChanges();
              }
              return jugadorEncontrado;
          }
+
+         Equipo IRepositorioJugador.asignarEquipo(int idJugador, int idEquipo)
+        {
+            var jugadorEncontrado = _appContext.Jugadores.Find(idJugador);
+            if (jugadorEncontrado != null)
+            {
+                var equipoEncontrado = _appContext.Equipos.Find(idEquipo);
+                if (equipoEncontrado != null)
+                {
+                    jugadorEncontrado.Equipo = equipoEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return equipoEncontrado;
+            }
+            return null;
+        }
      }
  }

@@ -1,0 +1,47 @@
+﻿@page
+@model SoccerTournametManager.App.Frontend.Pages.Jugadores.EditModel
+@{
+}
+<h1>Editar jugador</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="idJugador">Identificacion</label>
+        <input id="idJugador" type="text" name="idJugador" value="@Model.jugador.Id" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" name="nombre" value="@Model.jugador.Nombre" class="form-control">
+        <span asp-validation-for="jugador.Nombre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="documento">Documento</label>
+        <input id="documento" type="text" name="documento" value="@Model.jugador.Documento" class="form-control">
+        <span asp-validation-for="jugador.Documento" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="telefono">Telefono</label>
+        <input id="telefono" type="text" name="telefono" value="@Model.jugador.Telefono" class="form-control">
+        <span asp-validation-for="jugador.Telefono" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="numero">Numero</label>
+        <input id="numero" type="text" name="numero" value="@Model.jugador.Numero" class="form-control">
+        <span asp-validation-for="jugador.Numero" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="posicion">Posicion</label>
+        <input id="posicion" type="text" name="posicion" value="@Model.jugador.Posicion" class="form-control">
+        <span asp-validation-for="jugador.Posicion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="idEquipo">Equipo</label>
+        <select name="idEquipo" id="idEquipo" class="form-control">
+            @foreach (var equipo in Model.equipos)
+            {
+                <option value="@equipo.Id">@equipo.Nombre</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Editar jugador</button>
+</form>
+<a asp-page="./Index" class="btn btn-secondary">Volver</a>

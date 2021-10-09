@@ -43,7 +43,8 @@ namespace SoccerTournametManager.App.Persistencia
             return _appContext.NovedadesDePartidos
             .Include("Partido.EquipoLocal")
             .Include("Partido.EquipoVisitante")
-            .Include(n => n.JugadorInvolucrado);
+            .Include(p => p.JugadorInvolucrado)
+            .ThenInclude(j => j.Equipo);
             
         }
 
@@ -53,7 +54,8 @@ namespace SoccerTournametManager.App.Persistencia
             .Where(n => n.Id == idNovedadPartido)
             .Include("Partido.EquipoLocal")
             .Include("Partido.EquipoVisitante")
-            .Include(n => n.JugadorInvolucrado)
+            .Include(p => p.JugadorInvolucrado)
+            .ThenInclude(j => j.Equipo)
             .SingleOrDefault();
             return novedadEncontrada;
         }
