@@ -7,8 +7,11 @@ namespace SoccerTournametManager.App.Dominio
     public class Municipio
     {
         // Identificador único de cada municipio
-        [Display(Name = "Numero del Estadio")]
         public int Id { get; set; }
+
+        [Display(Name = "Nombre del municipio")]
+        [Required(ErrorMessage = "El nombre es obligatorio")]
+        [StringLength(30, ErrorMessage = "Maximo 30 caracteres")]
         public string Nombre { get; set; }
     }
 }

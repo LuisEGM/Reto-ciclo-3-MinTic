@@ -55,7 +55,13 @@
         <td>@Model.novedad.JugadorInvolucrado.Nombre</td>
         <td>@Model.novedad.JugadorInvolucrado.Numero</td>
         <td>@Model.novedad.JugadorInvolucrado.Posicion</td>
-        <td>@Model.novedad.JugadorInvolucrado.Equipo.Nombre</td>
+        @if (Model.novedad.JugadorInvolucrado.Equipo != null )
+        {
+          <td>@Model.novedad.JugadorInvolucrado.Equipo.Nombre</td>
+        }
+        else{
+          <td>Equipo nulo</td>
+        }
     </tr>
     }
   </tbody>

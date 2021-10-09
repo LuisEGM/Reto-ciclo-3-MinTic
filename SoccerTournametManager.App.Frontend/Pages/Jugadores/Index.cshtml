@@ -11,6 +11,8 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
+      <th scope="col">Documento</th>
+      <th scope="col">Telefono</th>
       <th scope="col">Numero</th>
       <th scope="col">Posicion</th>
       <th scope="col">Equipo</th>
@@ -23,11 +25,13 @@
         <tr>
             <th scope="row">@jugador.Id</th>
             <td>@jugador.Nombre</td>
+            <td>@jugador.Documento</td>
+            <td>@jugador.Telefono</td>
             <td>@jugador.Numero</td>
             <td>@jugador.Posicion</td>
             @if (jugador.Equipo == null) {
               <td>
-                <a class="btn btn-primary" asp-page="./AddEquipo" asp-route-id="@jugador.Id">Agregar equipo(to do)</a>
+                <a class="btn btn-primary" asp-page="./AddEquipo" asp-route-id="@jugador.Id">Agregar equipo</a>
               </td>
             }
             else {
@@ -35,6 +39,7 @@
             }
             <td>
               <a class="btn btn-primary" asp-page="./Details" asp-route-id="@jugador.Id">Detalle</a>
+              <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@jugador.Id">Editar</a>
             </td>
         </tr>
     }
