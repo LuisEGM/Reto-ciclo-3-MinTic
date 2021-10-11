@@ -30,12 +30,6 @@
         <input asp-for="jugador.Posicion" class="form-control">
         <span asp-validation-for="jugador.Posicion" class="text-danger" ></span>
     </div>
-    <div class="form-group">
-        <label asp-for="jugador.Equipo">Equipo</label>
-        <input asp-for="jugador.Equipo" class="form-control">
-        <span asp-validation-for="jugador.Equipo" class="text-danger" ></span>
-        
-    </div>
     <button type="submit" class="btn btn-primary">Crear Jugador</button>
 </form>
 <a class="btn btn-secondary" asp-page="./Index">Volver</a>
