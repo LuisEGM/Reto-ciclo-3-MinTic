@@ -17,10 +17,6 @@ namespace SoccerTournametManager.App.Persistencia
         /// inyeccion de dependencias para indicar el contexto a utilizar
         /// </sumary>
         /// <param name="appContext"></param>
-        // public RepositorioMunicipio(AppContext appContext)
-        // {
-        //     _appContext=appContext;
-        // }
 
         Municipio IRepositorioMunicipio.addMunicipio(Municipio municipio)
         {
