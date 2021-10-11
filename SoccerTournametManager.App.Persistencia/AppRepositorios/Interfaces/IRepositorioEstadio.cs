@@ -10,6 +10,8 @@ namespace SoccerTournametManager.App.Persistencia
         Estadio updateEstadio(int idEstadio, string nombre, string direccion);
         void DeleteEstadio(int idEstadio);
         Estadio GetEstadio(int idEstadio);
-        Municipio asignarMunicipio(int idEstadio, int idMunicipio); 
+        Municipio asignarMunicipio(int idEstadio, int idMunicipio);
+
+        IEnumerable<Estadio> SearchEstadio(string nombre);
     }
 }
