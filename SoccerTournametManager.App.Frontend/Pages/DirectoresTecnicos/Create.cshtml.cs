@@ -7,25 +7,25 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SoccerTournametManager.App.Dominio;
 using SoccerTournametManager.App.Persistencia;
 
-namespace SoccerTournametManager.App.Frontend.Pages.Arbitros
+namespace SoccerTournametManager.App.Frontend.Pages.DirectoresTecnicos
 {
     public class CreateModel : PageModel
     {
-        private readonly IRepositorioArbitro _repoArbitros;
-        public Arbitro Arbitro {get; set;}
-        public CreateModel(IRepositorioArbitro repoArbitros)
+        private readonly IRepositorioDT _repoDirectoresTecnicos;
+        public DirectorTecnico directortecnico {get; set;}
+        public CreateModel(IRepositorioDT repoDirectoresTecnicos)
         {
-            _repoArbitros = repoArbitros;
+            _repoDirectoresTecnicos = repoDirectoresTecnicos;
         }
         public void OnGet()
         {
-            Arbitro = new Arbitro();
+            directortecnico = new DirectorTecnico(); 
         }
-        public IActionResult OnPost(Arbitro arbitro)
+        public IActionResult OnPost(DirectorTecnico directorTecnico)
         {   
             if (ModelState.IsValid)
             {
-                _repoArbitros.addArbitro(arbitro);
+                _repoDirectoresTecnicos.addDirectorTecnico(directorTecnico);
                  return RedirectToPage("Index");
             }
             else
@@ -34,5 +34,6 @@ namespace SoccerTournametManager.App.Frontend.Pages.Arbitros
             }
             
         }
+        
     }
 }
