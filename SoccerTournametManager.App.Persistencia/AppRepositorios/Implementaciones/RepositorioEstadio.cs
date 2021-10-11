@@ -43,14 +43,14 @@
             return estadioEncontrado;
          }
 
-         Estadio IRepositorioEstadio.updateEstadio(Estadio estadio)
+         Estadio IRepositorioEstadio.updateEstadio(int idEstadio, string nombre, string direccion)
          {
-             var estadioEncontrado = _appContext.Estadios.FirstOrDefault(p => p.Id == estadio.Id);
+             var estadioEncontrado = _appContext.Estadios.FirstOrDefault(p => p.Id == idEstadio);
              if (estadioEncontrado != null)
              {
-                 estadioEncontrado.Nombre = estadio.Nombre;
-                 estadioEncontrado.Direccion = estadio.Direccion;
-                 estadioEncontrado.Municipio = estadio.Municipio;
+                 estadioEncontrado.Nombre = nombre;
+                estadioEncontrado.Direccion = direccion;
+                //estadioEncontrado.Municipio = estadio.Municipio;
                  _appContext.SaveChanges();
              }
              return estadioEncontrado;
