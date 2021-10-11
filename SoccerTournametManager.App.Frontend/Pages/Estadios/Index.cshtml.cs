@@ -11,6 +11,7 @@ namespace SoccerTournametManager.App.Frontend.Pages.Estadios
 {
     public class IndexModel : PageModel
     {
+        public string bActual {get; set;}
         private readonly IRepositorioEstadio _repoEstadio;
         public IEnumerable<Estadio> estadios {get; set;}
         public IndexModel(IRepositorioEstadio repoEstadio)
@@ -18,9 +19,18 @@ namespace SoccerTournametManager.App.Frontend.Pages.Estadios
             _repoEstadio = repoEstadio;
         }
 
-        public void OnGet()
+        public void OnGet(string b)
         {
-            estadios = _repoEstadio.getAllEstadios();
+            if (String.IsNullOrEmpty(b))
+            {
+                bActual = "";
+                estadios = _repoEstadio.getAllEstadios();
+            }
+            else
+            {
+                bActual = b;
+                estadios = _repoEstadio.SearchEstadio(b);
+            }
         }
     }
 }
