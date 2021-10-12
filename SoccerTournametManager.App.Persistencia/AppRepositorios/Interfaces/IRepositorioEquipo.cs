@@ -14,5 +14,7 @@ namespace SoccerTournametManager.App.Persistencia
         DirectorTecnico addDT(int idEquipo, int idDT);
         void DeleteEquipo(int idEquipo);
         Equipo GetEquipo(int idEquipo);
+
+        IEnumerable<Equipo> SearchEquipos(string nombre);
     }
 }
