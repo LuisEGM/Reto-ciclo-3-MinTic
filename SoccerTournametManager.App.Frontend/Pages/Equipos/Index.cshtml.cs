@@ -12,15 +12,25 @@ namespace SoccerTournametManager.App.Frontend.Pages.Pacientes
     public class IndexModel : PageModel
     {
         private readonly IRepositorioEquipo _repoEquipo;
+        public string bActual {get; set;}
         public IEnumerable<Equipo> equipos {get; set;}
         public IndexModel(IRepositorioEquipo repoEquipo)
         {
             _repoEquipo = repoEquipo;
         }
 
-        public void OnGet()
+        public void OnGet(string b)
         {
-            equipos = _repoEquipo.getAllEquipos();
+            if (String.IsNullOrEmpty(b))
+            {
+                bActual = "";
+                equipos = _repoEquipo.getAllEquipos();
+            }
+            else
+            {
+                bActual = b;
+                equipos = _repoEquipo.SearchEquipos(b);
+            }
         }
     }
 }
