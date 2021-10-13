@@ -10,5 +10,6 @@ namespace SoccerTournametManager.App.Persistencia
         DirectorTecnico updateDirectorTecnico(DirectorTecnico directorTecnico);
         void DeleteDirectorTecnico(int idDirectorTecnico);
         DirectorTecnico GetDirectorTecnico(int idDirectorTecnico);
+        IEnumerable<DirectorTecnico> SearchDirectorTecnico(string nombre);
     }
 }

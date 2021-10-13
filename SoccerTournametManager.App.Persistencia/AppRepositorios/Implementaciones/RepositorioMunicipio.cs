@@ -54,5 +54,10 @@ namespace SoccerTournametManager.App.Persistencia
             }
             return municipioEncontrado;
         }
+        IEnumerable<Municipio> IRepositorioMunicipio.SearchMunicipios(string nombre)
+        {
+            return _appContext.Municipios.Where(e => e.Nombre.Contains(nombre));
+        }
+
     }
 }

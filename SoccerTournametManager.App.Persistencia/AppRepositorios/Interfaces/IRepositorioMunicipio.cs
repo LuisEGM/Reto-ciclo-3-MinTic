@@ -10,5 +10,6 @@ namespace SoccerTournametManager.App.Persistencia
         Municipio updateMunicipio(Municipio municipio);
         void DeleteMunicipio(int idMunicipio);
         Municipio GetMunicipio(int idMunicipio);
+        IEnumerable<Municipio> SearchMunicipios(string nombre);
     }
 }

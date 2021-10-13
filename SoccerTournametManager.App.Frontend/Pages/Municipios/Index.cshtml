@@ -4,7 +4,18 @@
 }
 <h1>Listado de municipios</h1>
 
-<a class="btn btn-primary" asp-page="./Create">Nuevo municipio</a>
+<form method="get">
+  <div class="row">
+    <div class="col-md-6">
+      <a class="btn btn-primary" asp-page="./Create">Nuevo municipio</a> 
+    </div>
+    <div class="col-md-6 d-flex justify-content-end">
+      <div class="form-group mb-2">
+        <input name="b" id="b" class="form-control" placeholder="Nombre..." asp-for="@Model.bActual">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2 ml-2">Buscar</button>
+    </div>
+</form>
 
 <table class="table table-bordered">
   <thead class="thead-dark">

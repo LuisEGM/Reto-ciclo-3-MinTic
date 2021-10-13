@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using SoccerTournametManager.App.Dominio;
 using System.Linq;
-
 namespace SoccerTournametManager.App.Persistencia
 {
     public class RepositorioDT : IRepositorioDT
@@ -49,6 +48,10 @@ namespace SoccerTournametManager.App.Persistencia
                 _appContext.SaveChanges();
             }
             return dtEncontrado;
+        }
+        IEnumerable<DirectorTecnico> IRepositorioDT.SearchDirectorTecnico(string nombre)
+        {
+            return _appContext.DirectoresTecnicos.Where(e => e.Nombre.Contains(nombre));
         }
     }
 }

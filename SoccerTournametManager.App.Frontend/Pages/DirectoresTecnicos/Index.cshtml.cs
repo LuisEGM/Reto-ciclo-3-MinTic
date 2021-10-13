@@ -12,15 +12,24 @@ namespace SoccerTournametManager.App.Frontend.Pages.DirectoresTecnicos
     public class IndexModel : PageModel
     {
         private readonly IRepositorioDT _repoDT;
+        public string bActual {get; set;}
         public IEnumerable<DirectorTecnico> directorestecnicos {get; set;}
         public IndexModel(IRepositorioDT repoDT)
         {
             _repoDT = repoDT;
         }
-
-        public void OnGet()
+        public void OnGet(string b)
         {
-            directorestecnicos = _repoDT.getAllDTs(); 
+            if (String.IsNullOrEmpty(b))
+            {
+                bActual = "";
+                directorestecnicos = _repoDT.getAllDTs();
+            }
+            else
+            {
+                bActual = b;
+                directorestecnicos = _repoDT.SearchDirectorTecnico(b); 
+            }
         }
     }
 }
