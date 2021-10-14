@@ -10,5 +10,6 @@ namespace SoccerTournametManager.App.Persistencia
         Arbitro updateArbitro(Arbitro arbitro);
         void DeleteArbitro(int idArbitro);
         Arbitro GetArbitro(int idArbitro); 
+        IEnumerable<Arbitro> SearchArbitros(string nombre);
     }
 }

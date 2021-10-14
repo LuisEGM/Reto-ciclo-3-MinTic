@@ -80,5 +80,10 @@
             }
             return null;
         }
+        IEnumerable<Jugador> IRepositorioJugador.SearchJugadores(string nombre)
+        {
+            return _appContext.Jugadores.Where(j => j.Nombre.Contains(nombre));
+        }
      }
+     
  }

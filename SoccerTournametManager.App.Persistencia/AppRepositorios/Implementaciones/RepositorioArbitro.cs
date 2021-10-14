@@ -52,5 +52,9 @@ namespace SoccerTournametManager.App.Persistencia
             }
             return arbitroEncontrado;
         }
+        IEnumerable<Arbitro> IRepositorioArbitro.SearchArbitros(string nombre)
+        {
+            return _appContext.Arbitros.Where (a => a.Nombre.Contains(nombre));
+        }
     }
 }

@@ -12,5 +12,6 @@ namespace SoccerTournametManager.App.Persistencia
         void DeleteJugador(int idJugador);
         Jugador GetJugador(int idJugador);
         Equipo asignarEquipo(int idJugador, int idEquipo);
+        IEnumerable<Jugador> SearchJugadores(string nombre);
     }
 }
