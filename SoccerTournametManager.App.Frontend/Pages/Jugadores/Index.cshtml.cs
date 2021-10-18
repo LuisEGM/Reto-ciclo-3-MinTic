@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SoccerTournametManager.App.Persistencia;
 using SoccerTournametManager.App.Dominio;
-
 namespace SoccerTournametManager.App.Frontend.Pages.Jugadores
 {
     public class IndexModel : PageModel
